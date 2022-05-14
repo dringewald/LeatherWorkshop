@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.joeltrauger</groupId>
   <artifactId>LeatherWorkshop</artifactId>
-  <version>1.0.2</version>
+  <version>1.0.3</version>
   <build>
     <resources>
       <resource>

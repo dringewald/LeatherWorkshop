@@ -28,6 +28,7 @@ public final class LeatherWorkshop extends JavaPlugin {
 		main = this;
 		this.config.addDefault("Chance of Leather[1-100]", 20);
 		this.config.addDefault("Cook speed (default 200)", 200);
+		this.config.addDefault("EXP Gain", 5);
 		this.config.options().copyDefaults(true);
 		try {
 	      this.config.save(this.file);
@@ -55,7 +56,8 @@ public final class LeatherWorkshop extends JavaPlugin {
 		ItemStack is = new ItemStack(Material.LEATHER, 1);
 		NamespacedKey nkey = new NamespacedKey(main, "ZombieLeather");
 		int cookSpeed = LeatherWorkshop.main.config.getInt("Cook speed (default 200)");
-		FurnaceRecipe fr = new FurnaceRecipe(nkey, is, Material.ROTTEN_FLESH, 0, cookSpeed);
+		int expGain = LeatherWorkshop.main.config.getInt("EXP Gain");
+		FurnaceRecipe fr = new FurnaceRecipe(nkey, is, Material.ROTTEN_FLESH, expGain, cookSpeed);
 		Bukkit.getServer().addRecipe(fr);
 		getServer().getConsoleSender().sendMessage("LeatherWorker is done loading recipes.");
 	}
