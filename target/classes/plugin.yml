@@ -1,0 +1,45 @@
+name: LeatherWorkshop
+version: '1.0.4'
+description: Make rotten meat finally useful.
+main: com.joeltrauger.leatherworkshop.LeatherWorkshop
+api-version: '1.20'
+authors: [Joeltrauger, Holt]
+website: https://www.spigotmc.org/members/holt32.188440/
+
+commands:
+  leatherworkshop:
+    description: Base command for LeatherWorkshop.
+    aliases: [lws, leatherwork]
+    usage: |
+      /<command> reload - Reloads the LeatherWorkshop configuration and language files.
+      /<command> language <language> - Sets the plugin language.
+      /<command> help - Displays help messages for LeatherWorkshop.
+      /<command> info - Displays information about the LeatherWorkshop plugin.
+    subcommands:
+      reload:
+        description: Reloads the LeatherWorkshop plugin.
+        permission: leatherworkshop.reload
+      language:
+        description: Sets the plugin language.
+        permission: leatherworkshop.language
+        usage: /<command> language <language>
+      help:
+        description: Displays help information for LeatherWorkshop.
+        permission: leatherworkshop.help
+      info:
+        description: Displays information about the LeatherWorkshop plugin.
+        permission: leatherworkshop.info
+
+permissions:
+  leatherworkshop.reload:
+    description: Allows reloading the LeatherWorkshop plugin.
+    default: op
+  leatherworkshop.language:
+    description: Allows setting the language for the LeatherWorkshop plugin.
+    default: op
+  leatherworkshop.help:
+    description: Allows viewing help information for LeatherWorkshop.
+    default: op
+  leatherworkshop.info:
+    description: Allows viewing information about the LeatherWorkshop plugin.
+    default: true

@@ -17,4 +17,3 @@ build_plugin_prod:
     paths: 
       - target/*.jar
     expire_in: 90 days
-
