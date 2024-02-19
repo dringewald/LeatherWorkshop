@@ -10,8 +10,8 @@ language: en
 # 100% always produces leather out of rotten flesh
 leather-chance: 100
 
-# Speed, how long the rotten meat should cook.
-# Default: 200
+# Speed, how long the rotten meat should cook. (ticks it takes to cook the leather)
+# Default: 200 (10s) - lower numbers means faster cooking (20 ticks = 1s)
 # 200 takes about as long as it takes to turn wood into coal.
 cook-speed: 200
 
