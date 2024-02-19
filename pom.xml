@@ -21,11 +21,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
-                <version>3.2.0</version> <!-- use the latest version available -->
-                <configuration>
-                    <!-- Custom directory for the JAR file -->
-                    <outputDirectory>C:\Users\Holt\Git\MCServer-Spigot\plugins</outputDirectory>
-                </configuration>
+                <version>3.3.0</version> <!-- use the latest version available -->
             </plugin>
         </plugins>
     </build>

@@ -15,6 +15,6 @@ build_plugin_prod:
   artifacts:
     name: PlugIn
     paths: 
-      - target
+      - target/*.jar
     expire_in: 90 days
 
