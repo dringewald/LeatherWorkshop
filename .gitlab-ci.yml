@@ -15,5 +15,5 @@ build_plugin_prod:
   artifacts:
     name: PlugIn
     paths: 
-      - target/*.jar
+      - target/LeatherWorkshop*.jar
     expire_in: 90 days
