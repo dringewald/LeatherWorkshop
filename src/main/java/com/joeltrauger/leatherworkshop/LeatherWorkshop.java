@@ -6,7 +6,10 @@ import com.joeltrauger.leatherworkshop.utils.LangFile;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Map;
+import java.util.concurrent.Callable;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -22,18 +25,17 @@ import org.bukkit.inventory.Recipe;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bstats.bukkit.Metrics;
+import org.bstats.charts.AdvancedPie;
 
 public final class LeatherWorkshop extends JavaPlugin {
     public static LeatherWorkshop plugin;
     private LangFile langFile;
     private NamespacedKey zombieLeatherKey;
     public File ConfigFile = new File(getDataFolder(), "config.yml");
+    Metrics metrics = new Metrics(this, 21052);
 
     public void onEnable() {
         plugin = this;
-
-        int pluginId = 21052; // <-- Replace with the id of your plugin!
-        new Metrics(this, pluginId);
 
         // Ensure Language File exists
         ensureLanguageFilesExist();
@@ -56,6 +58,9 @@ public final class LeatherWorkshop extends JavaPlugin {
         // Register Command
         this.getCommand("leatherworkshop").setExecutor(new LeatherWorkshopCommand(this));
 
+        // Update Language in bStats
+        updateMetricLanguage();
+        
         // Print out Enabled state
         Bukkit.getConsoleSender().sendMessage(plugin.getLangFile().getMessage("finished-enabling", "&6Enabling LeatherWorkshop...", true));
     }
@@ -200,5 +205,28 @@ public final class LeatherWorkshop extends JavaPlugin {
         return langConfig.contains("prefix") && 
             langConfig.contains("enabling-message") && 
             langConfig.contains("finished-enabling");
+    }
+
+    public void updateMetricLanguage() {
+        metrics.addCustomChart(new AdvancedPie("language_used", new Callable<Map<String, Integer>>() {
+            @Override
+            public Map<String, Integer> call() throws Exception {
+                Map<String, Integer> valueMap = new HashMap<>();
+                
+                // Read the plugin's language setting from config.yml
+                String language = getPluginLanguage();
+                
+                // Increment the count for the configured language
+                valueMap.put(language, 1); // Since this is a fixed setting, we just set its count to 1
+                
+                return valueMap;
+            }
+            
+            private String getPluginLanguage() {
+                // Access the plugin's configuration and retrieve the language setting
+                FileConfiguration config = plugin.getConfig();
+                return config.getString("language", "en"); 
+            }
+        }));
     }
 }

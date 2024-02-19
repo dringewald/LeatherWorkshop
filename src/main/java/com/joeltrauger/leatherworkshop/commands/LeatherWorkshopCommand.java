@@ -37,7 +37,10 @@ public class LeatherWorkshopCommand implements CommandExecutor {
                     // Reinitialize LangFile to reload possibly extracted language files (if user deleted them)
                     String language = plugin.getConfig().getString("language", "en");
                     plugin.setLangFile(new LangFile(plugin, language));
-        
+
+                    // Update Language in bStats
+                    plugin.updateMetricLanguage();
+
                     // Send Message that the reload completed
                     sender.sendMessage(plugin.getLangFile().getMessage("reload-completed", "&6Successfully reloaded the Plugin!", true));
                 } else {
@@ -71,6 +74,9 @@ public class LeatherWorkshopCommand implements CommandExecutor {
                             // Reinitialize LangFile to reload language
                             String language = plugin.getConfig().getString("language", requestedLang);
                             plugin.setLangFile(new LangFile(plugin, language));
+
+                            // Update Language in bStats
+                            plugin.updateMetricLanguage();
 
                             // Give atleast some feedback
                             sender.sendMessage(plugin.getLangFile().getMessage("language-set", "&6Successfully set the language file.", true));
