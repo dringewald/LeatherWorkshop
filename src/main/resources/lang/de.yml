@@ -1,0 +1,36 @@
+# Chat-Prefix (Wird in jeder Nachricht verwendet)
+prefix: "&1[&aLeather&6Workshop&1]"
+
+# Interne Nachrichten des Plug-Ins (Nur in der Konsole)
+enabling-message: "&6Starte LeatherWorkshop..."
+finished-enabling: "&6LeatherWorkshop wurde erfolgreich gestartet."
+plugin-disabled: "&6LeatherWorkshop wurde erfolgreich deaktiviert."
+registered-furnace: "&cNeuer Ofen-Event-Listener wurde registriert."
+loading-recipe: "&cLade LeatherWorker-Rezept für verrottetes Fleisch..."
+finished-recipe: "&6LeatherWorker hat das Rezept erfolgreich geladen." 
+found-old-config: "&cAlte LeatherWorkshop-Konfigurationsdatei gefunden. Migriere zu neuer config.yml..."
+config-migrated: "&6Die Konfigurationsdatei wurde erfolgreich migriert."
+delete-old-config: "&6Die alte Konfigurationsdatei wurder erfolgreich gelöscht."
+deletion-failed: "&4Die alte Konfigurationsdatei konnte nicht gelöscht werden. Bitte lösche die Datei manuell."
+save-config-failed: "&4Die neue Konfigurationsdatei konnte nicht gespeichert werden: "
+old-config-not-found: "&6Keine alte Konfigurationsdatei gefunden. Die Standardeinstellungen werden verwendet."
+unloading-recipe: "&cDeaktiviere das LeatherWorker-Rezept für verottetes Fleisch..."
+finished-unloading-recipe: "&6LeatherWorker hat das Rezept erfolgreich deaktiviert."
+
+# Chat-Nachrichten
+no-permission: "&cDu hast keine Berechtigung um diesen Befehl auszuführen!"
+reloading-plugin: "&cLade LeatherWorkshop neu..."
+reload-completed: "&aAlle Dateien wurden erfolgreich neu geladen."
+language-set: "&6Die Sprache wurde erfolgreich gesetzt."
+language-not-exists: "&4Die angegebene Sprache existiert nicht im Ordner \"lang\" des Plugins."
+language-usage: "&4Benutze: /<Kommando> language <Sprache>"
+leatherworkshop-help: 
+  - "&8---------- &1[&aLeather&6Workshop&1] ----------"
+  - " "
+  - "&e/leatherworkshop - &7Zeigt Informationen über dieses Plugin an"
+  - "&e/leatherworkshop help - &7Zeigt dir dieses Hilfemenü an"
+  - "&e/leatherworkshop reload - &7Lädt die Konfiguration neu"
+  - "&e/leatherworkshop language [Sprache] - &7Ändert sofort die Sprache des Plug-Ins"
+  - "&e/leatherworkshop info - &7Zeigt das Gleiche wie \"/leatherworkshop\" an"
+improper-usage: "&cUnzulässiger Befehl! &aEine Liste der Unterbefehle findest du unter \"/leatherworkshop help\"."
+plugin-info: "&5Plugin erstellt von traugdor, modifiziert und aktualisiert von Holt. Siehe \"/leatherworkshop help\" für eine Liste der Unterbefehle."
