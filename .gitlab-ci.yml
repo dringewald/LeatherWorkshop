@@ -13,7 +13,7 @@ build_plugin_prod:
     name: maven:3.9.6-eclipse-temurin-17-focal
   script: "mvn clean package"
   artifacts:
-    name: PlugIn
+    name: "$CI_PROJECT_NAME-$CI_COMMIT_BRANCH-$CI_PIPELINE_ID"
     paths: 
       - target/LeatherWorkshop*.jar
     expire_in: 90 days
