@@ -66,20 +66,9 @@ public final class LeatherWorkshop extends JavaPlugin {
     }
 
     public void onDisable() {
-        // Onload Recipe
-        Iterator<Recipe> it = getServer().recipeIterator();
-        while (it.hasNext()) {
-            Recipe recipe = it.next();
-            if (recipe instanceof Keyed) {
-                Keyed keyed = (Keyed) recipe;
-                if (zombieLeatherKey.equals(keyed.getKey())) {
-                    it.remove();
-                    Bukkit.getConsoleSender().sendMessage(plugin.getLangFile().getMessage("unloading-recipe", "&cUnloading LeatherWorker Zombie Flesh Recipe...", true));
-                }
-            }
-        }
-        Bukkit.getConsoleSender().sendMessage(plugin.getLangFile().getMessage("finished-unloading-recipe", "&6LeatherWorker unloaded the recipe successfully.", true));
-        
+        // Unload Recipe
+        unloadRecipe();
+
         // Send Message that the Plugin has been disabled
         Bukkit.getConsoleSender().sendMessage(plugin.getLangFile().getMessage("plugin-disabled", "&6LeatherWorkshop has been disabled.", true));
     }
@@ -229,4 +218,21 @@ public final class LeatherWorkshop extends JavaPlugin {
             }
         }));
     }
+
+    public void unloadRecipe() {
+        // Unload Recipe
+        Iterator<Recipe> it = getServer().recipeIterator();
+        while (it.hasNext()) {
+            Recipe recipe = it.next();
+            if (recipe instanceof Keyed) {
+                Keyed keyed = (Keyed) recipe;
+                if (zombieLeatherKey.equals(keyed.getKey())) {
+                    Bukkit.removeRecipe(keyed.getKey()); // Remove the recipe directly
+                    Bukkit.getConsoleSender().sendMessage(plugin.getLangFile().getMessage("unloading-recipe", "&cUnloading LeatherWorker Zombie Flesh Recipe...", true));
+                    break; // Break after finding and attempting to remove the specific recipe to avoid ConcurrentModificationException
+                }
+            }
+        }
+        Bukkit.getConsoleSender().sendMessage(plugin.getLangFile().getMessage("finished-unloading-recipe", "&6LeatherWorker unloaded the recipe successfully.", true));
+    }   
 }

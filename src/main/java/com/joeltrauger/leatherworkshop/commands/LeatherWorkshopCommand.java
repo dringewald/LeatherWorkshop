@@ -31,7 +31,12 @@ public class LeatherWorkshopCommand implements CommandExecutor {
                     plugin.ensureConfigExists(); 
                     plugin.ensureLanguageFilesExist();
                     plugin.reloadConfig();
+                    
+                    // Register Event
                     plugin.onEvents();
+
+                    // Unload and reregister Recipe
+                    plugin.unloadRecipe();
                     plugin.onRecipe();
         
                     // Reinitialize LangFile to reload possibly extracted language files (if user deleted them)
