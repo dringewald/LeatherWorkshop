@@ -21,6 +21,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.Recipe;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.bstats.bukkit.Metrics;
 
 public final class LeatherWorkshop extends JavaPlugin {
     public static LeatherWorkshop plugin;
@@ -30,6 +31,9 @@ public final class LeatherWorkshop extends JavaPlugin {
 
     public void onEnable() {
         plugin = this;
+
+        int pluginId = 21052; // <-- Replace with the id of your plugin!
+        new Metrics(this, pluginId);
 
         // Ensure Language File exists
         ensureLanguageFilesExist();
