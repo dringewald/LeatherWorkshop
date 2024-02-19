@@ -1,0 +1,20 @@
+variables:
+  MAVEN_OPTS: -Dmaven.repo.local=.m2/repository
+
+stages:
+  - build_plugin
+
+build_plugin_prod:
+  only:
+    refs:
+      - master
+  stage: build_plugin
+  image: 
+    name: maven:3.9.6-eclipse-temurin-17-focal
+  script: "mvn clean package"
+  artifacts:
+    name: PlugIn
+    paths: 
+      - target
+    expire_in: 90 days
+
