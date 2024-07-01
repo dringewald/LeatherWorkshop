@@ -10,7 +10,7 @@ build_plugin_prod:
       - master
   stage: build_plugin
   image: 
-    name: maven:3.9.6-eclipse-temurin-17-focal
+    name: maven:3.9.8-eclipse-temurin-21-jammy
   script: "mvn clean package"
   artifacts:
     name: "$CI_PROJECT_NAME-$CI_COMMIT_BRANCH-$CI_PIPELINE_ID"
