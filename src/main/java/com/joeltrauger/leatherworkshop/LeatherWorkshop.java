@@ -1,13 +1,16 @@
 package com.joeltrauger.leatherworkshop;
 
 import com.joeltrauger.leatherworkshop.commands.LeatherWorkshopCommand;
+import com.joeltrauger.leatherworkshop.commands.LeatherWorkshopTabCompleter;
 import com.joeltrauger.leatherworkshop.events.Event_ZombieSmelt;
 import com.joeltrauger.leatherworkshop.utils.LangFile;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.Callable;
 
@@ -45,7 +48,13 @@ public final class LeatherWorkshop extends JavaPlugin {
         langFile = new LangFile(this, language);
 
         // Migrate old config or create new config file to valid yaml
-        migrateOldConfig();
+        File oldConfigFile = new File(getDataFolder(), "LeatherWorkshop.yml");
+        if (oldConfigFile.exists()) {
+            migrateOldConfig();
+        } else {
+            // Ensure the config.yml exists when starting the plugin
+            ensureConfigExists();
+        }
 
         Bukkit.getConsoleSender().sendMessage(plugin.getLangFile().getMessage("enabling-message", "&6Enabling LeatherWorkshop...", true));
 
@@ -57,6 +66,7 @@ public final class LeatherWorkshop extends JavaPlugin {
     
         // Register Command
         this.getCommand("leatherworkshop").setExecutor(new LeatherWorkshopCommand(this));
+        this.getCommand("leatherworkshop").setTabCompleter(new LeatherWorkshopTabCompleter(this));
 
         // Update Language in bStats
         updateMetricLanguage();
@@ -234,5 +244,29 @@ public final class LeatherWorkshop extends JavaPlugin {
             }
         }
         Bukkit.getConsoleSender().sendMessage(plugin.getLangFile().getMessage("finished-unloading-recipe", "&6LeatherWorker unloaded the recipe successfully.", true));
-    }   
+    }
+
+    // Method to get available languages
+    public List<String> getAvailableLanguages() {
+        List<String> languages = new ArrayList<>();
+        File langDir = new File(getDataFolder(), "lang");
+
+        // Ensure the language directory exists
+        if (langDir.exists() && langDir.isDirectory()) {
+            // List all files in the language directory
+            File[] langFiles = langDir.listFiles();
+
+            if (langFiles != null) {
+                for (File langFile : langFiles) {
+                    String fileName = langFile.getName();
+                    if (fileName.endsWith(".yml")) {
+                        // Extract the language code from the file name (e.g., "en.yml" -> "en")
+                        String lang = fileName.substring(0, fileName.length() - 4);
+                        languages.add(lang);
+                    }
+                }
+            }
+        }
+        return languages;
+    }
 }
