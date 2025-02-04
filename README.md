@@ -61,7 +61,7 @@ The plugin comes with a `config.yml` file where you can customize the following:
 ### **🆕 Latest Updates - February 04, 2025**  
 - **🔄 Updated plugin for Minecraft 1.21.4 compatibility**
 - **🔤 Added full language system** – All messages are now fully translatable.
-- **🔨 Added Recipe permission support** Let's you use the recipe only if you have the permission "leatherworkshop.recipe".
+- **🔨 Added Recipe permission support** – Let's you use the recipe only if you have the permission "leatherworkshop.recipe".
 - **🛠️ Added new admin commands** – `reload`, `language`, and more.  
 - **🔄 Changed Config** – Automatic config migration for future updates.  
 
