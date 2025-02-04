@@ -48,6 +48,7 @@ buildNumber.properties
 .idea/**/shelf
 .idea/codeStyles
 .idea/inspectionProfiles
+.vscode/
 
 # Generated files
 .idea/**/contentModel.xml
