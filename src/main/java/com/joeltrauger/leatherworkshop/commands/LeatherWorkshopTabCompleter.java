@@ -34,6 +34,7 @@ public class LeatherWorkshopTabCompleter implements TabCompleter {
             for (String lang : languages) {
                 if (lang.startsWith(args[1].toLowerCase())) {
                     completions.add(lang);
+                    completions.add("<custom_language>");
                 }
             }
         }

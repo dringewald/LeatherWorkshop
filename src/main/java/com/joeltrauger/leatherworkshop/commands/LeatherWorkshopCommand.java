@@ -56,7 +56,7 @@ public class LeatherWorkshopCommand implements CommandExecutor {
             else if (args[0].equalsIgnoreCase("language")) {
                 if (sender.hasPermission("leatherworkshop.language")) {
                     if (args.length == 2) {
-                        String requestedLang = args[1].toLowerCase();
+                        String requestedLang = args[1];
                         if (plugin.doesLanguageExist(requestedLang)) {
                             // ensure config and language file exist
                             plugin.ensureConfigExists(); 

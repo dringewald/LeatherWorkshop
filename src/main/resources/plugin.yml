@@ -2,7 +2,7 @@ name: LeatherWorkshop
 version: '1.0.4'
 description: Make rotten meat finally useful.
 main: com.joeltrauger.leatherworkshop.LeatherWorkshop
-api-version: '1.21.1'
+api-version: '1.21.4'
 authors: [Joeltrauger, Holt]
 website: https://www.spigotmc.org/members/holt32.188440/
 
