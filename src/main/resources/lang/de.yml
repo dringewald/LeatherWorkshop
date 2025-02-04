@@ -19,6 +19,7 @@ finished-unloading-recipe: "&6LeatherWorker hat das Rezept erfolgreich deaktivie
 
 # Chat-Nachrichten
 no-permission: "&cDu hast keine Berechtigung um diesen Befehl auszuführen!"
+no-recipe-permission: "&cDu hast keine Berechtigung um aus verfaultem Fleisch Leder zu schmelzen."
 reloading-plugin: "&cLade LeatherWorkshop neu..."
 reload-completed: "&aAlle Dateien wurden erfolgreich neu geladen."
 language-set: "&6Die Sprache wurde erfolgreich gesetzt."

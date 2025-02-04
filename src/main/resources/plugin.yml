@@ -1,5 +1,5 @@
 name: LeatherWorkshop
-version: '1.0.4'
+version: '1.0.5'
 description: Make rotten meat finally useful.
 main: com.joeltrauger.leatherworkshop.LeatherWorkshop
 api-version: '1.21.4'
@@ -42,4 +42,7 @@ permissions:
     default: op
   leatherworkshop.info:
     description: Allows viewing information about the LeatherWorkshop plugin.
+    default: true
+  leatherworkshop.recipe:
+    description: Allows smelting rotten flesh into leather.
     default: true

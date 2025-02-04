@@ -19,6 +19,7 @@ finished-unloading-recipe: "&6LeatherWorker unloaded the recipe successfully."
 
 # chat messages
 no-permission: "&cYou do not have permission to use this command!"
+no-recipe-permission: "&cYou do not have permission to smelt rotten flesh into leather."
 reloading-plugin: "&cReloading LeatherWorkshop..."
 reload-completed: "&6Successfully reloaded the Plugin!"
 language-set: "&6Successfully set the language file." 

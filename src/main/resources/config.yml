@@ -1,8 +1,31 @@
-# Default: English (en) - no download required.
-# This defines the default language. You can place multiple locales in the plugin's "lang" folder to display different locales.
-# You'll find more translations in the plugin's "lang" folder. Currently the plugiin ships the following languages: 
-# - "en" - English 
-# - "de" - German
+# ======================================================================================= #
+#  _                _   _            __          __        _        _                     #
+# | |              | | | |           \ \        / /       | |      | |                    #
+# | |     ___  __ _| |_| |__   ___ _ _\ \  /\  / /__  _ __| | _____| |__   ___  _ __      #
+# | |    / _ \/ _` | __| '_ \ / _ \ '__\ \/  \/ / _ \| '__| |/ / __| '_ \ / _ \| '_ \     #
+# | |___|  __/ (_| | |_| | | |  __/ |   \  /\  / (_) | |  |   <\__ \ | | | (_) | |_) |    #
+# |______\___|\__,_|\__|_| |_|\___|_|    \/  \/ \___/|_|  |_|\_\___/_| |_|\___/| .__/     #
+#                                                                              | |        #
+#                                                                              |_|        #
+# ======================================================================================= #
+
+# 🌍 Language Settings
+#
+# This defines the default language for the plugin.
+# 
+# 🔹 How it works:
+# - The plugin will use the language file that matches this setting.
+# - Language files are stored in the "lang" folder inside the plugin directory.
+# - If the specified language file is missing, the plugin will default to English (en).
+#
+# 🔹 Available Languages (no download needed):
+# - "en" → English (default)
+# - "de" → German
+#
+# You can add more languages by placing additional translation files in the "lang" folder.
+#
+# Default: English (en)
+
 language: en
 
 # Chance of rotten flesh turning into leather
