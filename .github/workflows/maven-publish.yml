@@ -26,5 +26,5 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: ${{ github.event.repository.name }}-${{ github.ref_name }}-${{ github.run_id }}
-          path: target/JodellePowerMining*.jar
+          path: target/LeatherWorkshop*.jar
           retention-days: 90
